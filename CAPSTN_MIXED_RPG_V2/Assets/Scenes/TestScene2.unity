@@ -148,12 +148,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b2a843548fb51468dcb9740f280845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 0
+  MaxHealth: 100
   CurrentHealth: 0
   Speed: 0
   Attack: 0
   Defense: 0
   IsAlive: 1
+  V_Faction: 1
 --- !u!4 &221045243
 Transform:
   m_ObjectHideFlags: 0
@@ -198,16 +199,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91ac7783411e05f49b2bba5d83be9f4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AllyUnits:
+  AllUnits:
   - {fileID: 652355560}
   - {fileID: 795464564}
   - {fileID: 1168167192}
-  LivingAllies: []
-  DeadAllies: []
-  EnemyUnits:
   - {fileID: 1616647799}
   - {fileID: 1545253659}
   - {fileID: 221045242}
+  AllyUnits: []
+  LivingAllies: []
+  DeadAllies: []
+  EnemyUnits: []
   LivingEnemies: []
   DeadEnemies: []
 --- !u!4 &646806253
@@ -254,12 +256,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b2a843548fb51468dcb9740f280845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 0
+  MaxHealth: 100
   CurrentHealth: 0
   Speed: 0
   Attack: 0
   Defense: 0
   IsAlive: 1
+  V_Faction: 0
 --- !u!4 &652355561
 Transform:
   m_ObjectHideFlags: 0
@@ -284,6 +287,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 744798809}
+  - component: {fileID: 744798810}
   m_Layer: 0
   m_Name: UnitKiller
   m_TagString: Untagged
@@ -306,6 +310,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &744798810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 744798808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ac9a3185f06f1644b28e5fed86955ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &795464563
 GameObject:
   m_ObjectHideFlags: 0
@@ -335,12 +351,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b2a843548fb51468dcb9740f280845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 0
+  MaxHealth: 100
   CurrentHealth: 0
   Speed: 0
   Attack: 0
   Defense: 0
   IsAlive: 1
+  V_Faction: 0
 --- !u!4 &795464565
 Transform:
   m_ObjectHideFlags: 0
@@ -464,12 +481,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b2a843548fb51468dcb9740f280845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 0
+  MaxHealth: 100
   CurrentHealth: 0
   Speed: 0
   Attack: 0
   Defense: 0
   IsAlive: 1
+  V_Faction: 0
 --- !u!4 &1168167193
 Transform:
   m_ObjectHideFlags: 0
@@ -660,13 +678,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1639516390}
-        m_TargetAssemblyTypeName: SceneLoadingButtons, Assembly-CSharp
-        m_MethodName: LoadOverworld
-        m_Mode: 1
+      - m_Target: {fileID: 744798810}
+        m_TargetAssemblyTypeName: UnitKiller, Assembly-CSharp
+        m_MethodName: KillUnit
+        m_Mode: 2
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgumentAssemblyTypeName: UnitData, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -739,12 +757,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b2a843548fb51468dcb9740f280845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 0
+  MaxHealth: 100
   CurrentHealth: 0
   Speed: 0
   Attack: 0
   Defense: 0
   IsAlive: 1
+  V_Faction: 1
 --- !u!4 &1545253660
 Transform:
   m_ObjectHideFlags: 0
@@ -789,12 +808,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29b2a843548fb51468dcb9740f280845, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 0
+  MaxHealth: 100
   CurrentHealth: 0
   Speed: 0
   Attack: 0
   Defense: 0
   IsAlive: 1
+  V_Faction: 1
 --- !u!4 &1616647800
 Transform:
   m_ObjectHideFlags: 0
