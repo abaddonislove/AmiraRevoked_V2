@@ -1,7 +1,6 @@
 using System;
-using Unity.Mathematics;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.PlayerLoop;
 
 // Variables: Health, Speed, Attack, Defense, Queued Action
 public class UnitData : MonoBehaviour, IComparable<UnitData>
@@ -19,8 +18,11 @@ public class UnitData : MonoBehaviour, IComparable<UnitData>
     public float Defense;
     public bool IsAlive = true;
     public Faction V_Faction;
+    public List<SkillData> Skills;
+    public SkillData SelectedSkill;
 
     public event Action<UnitData> OnDie;
+    public event Action OnActionFinishedPerforming;
 
     #region Interface
 
@@ -54,5 +56,17 @@ public class UnitData : MonoBehaviour, IComparable<UnitData>
 
         IsAlive = false;
         OnDie?.Invoke(this);
+    }
+
+    public virtual void ChooseSkill()
+    {
+        int index = UnityEngine.Random.Range(0, Skills.Count);
+        Debug.Log(index);
+        SelectedSkill = Skills[index];
+    }
+
+    public virtual void PerformAction(List<UnitData> _targets)
+    {
+        SelectedSkill.ExecuteSkill(this, _targets);
     }
 }
